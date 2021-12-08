@@ -8,7 +8,7 @@ beforeEach(() => {
   renderWithRouter(<App />);
 });
 
-describe('Testes no componente App.js', () => {
+describe('Teste links no componente App.js', () => {
   test('Aplicação contém o link Home', () => {
     const home = screen.getByRole('link', { name: 'Home' });
 
@@ -25,5 +25,35 @@ describe('Testes no componente App.js', () => {
     const FavoritePokémons = screen.getByRole('link', { name: 'Favorite Pokémons' });
 
     expect(FavoritePokémons).toBeDefined();
+  });
+
+  test('Ao clicar no link home e redirecionado pra rota /', () => {
+    const { history } = renderWithRouter(<App />);
+
+    const home = screen.getAllByRole('link', { name: 'Home' });
+
+    userEvent.click(home[1]);
+
+    expect(history.location.pathname).toBe('/');
+  });
+
+  test('Ao clicar no link About e redirecionado pra rota /about', () => {
+    const { history } = renderWithRouter(<App />);
+
+    const About = screen.getAllByRole('link', { name: 'About' });
+
+    userEvent.click(About[1]);
+
+    expect(history.location.pathname).toBe('/about');
+  });
+
+  test('Ao clicar no link Favorite Pokémons e redirecionado pra rota /Favorites', () => {
+    const { history } = renderWithRouter(<App />);
+
+    const FavoritePokémons = screen.getAllByRole('link', { name: 'Favorite Pokémons' });
+
+    userEvent.click(FavoritePokémons[1]);
+
+    expect(history.location.pathname).toBe('/favorites');
   });
 });
