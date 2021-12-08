@@ -32,6 +32,5 @@ describe('testes no componente About', () => {
     const imagem = screen.getByRole('img');
 
     expect(imagem.src).toEqual(url);
-
   });
 });
