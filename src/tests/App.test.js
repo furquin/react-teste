@@ -8,7 +8,7 @@ beforeEach(() => {
   renderWithRouter(<App />);
 });
 
-describe.skip('Teste links no componente App.js', () => {
+describe('Teste links no componente App.js', () => {
   test('Aplicação contém o link Home', () => {
     const home = screen.getByRole('link', { name: 'Home' });
 
