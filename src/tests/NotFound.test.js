@@ -12,4 +12,12 @@ describe('testes no componente NotFound', () => {
 
     expect(heading).toBeInTheDocument();
   });
+
+  test('Teste se página mostra a imagem', () => {
+    const url = 'https://media.giphy.com/media/kNSeTs31XBZ3G/giphy.gif';
+
+    const imagem = screen.queryByAltText(/Pikachu crying/i);
+
+    expect(imagem.src).toBe(url);
+  });
 });
