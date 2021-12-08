@@ -19,4 +19,10 @@ describe('testes no componente About', () => {
 
     expect(heading).toBeDefined();
   });
+
+  test('contém  dois parágrafos com informações sobre a Pokédex', () => {
+    const paragrafo = screen.getAllByTestId(/parágrafo/i);
+
+    expect(paragrafo).toHaveLength(2);
+  });
 });
