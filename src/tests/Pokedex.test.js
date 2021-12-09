@@ -14,4 +14,17 @@ describe('testes componente pokedex', () => {
 
     expect(heading).toBeInTheDocument();
   });
+
+  test('É exibido proximo pokemon ao clicar no botão próximo pokémon', () => {
+    const button = screen.queryByText(/Próximo pokémon/i);
+    expect(button).toBeDefined();
+
+    userEvent.click(button);
+    const charmander = screen.getByText(/Charmander/i);
+    expect(charmander).toBeInTheDocument();
+
+    userEvent.click(button);
+    const caterpie = screen.getByText(/Caterpie/i);
+    expect(caterpie).toBeDefined();
+  });
 });
