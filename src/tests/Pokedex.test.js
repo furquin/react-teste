@@ -28,9 +28,28 @@ describe('testes componente pokedex', () => {
     expect(caterpie).toBeDefined();
   });
 
-  test.only('É mostrado apenas um Pokémon por vez.', () => {
+  test('É mostrado apenas um Pokémon por vez.', () => {
     const list = screen.getAllByTestId('pokemon-name');
 
     expect(list).toHaveLength(1);
+  });
+
+  test.only('Teste se a Pokédex tem os botões de filtro.', () => {
+    const buttonAll = screen.getByTestId('all');
+    const next = screen.getByTestId('next-pokemon');
+    const buttons = screen.getAllByTestId('pokemon-type-button');
+    const value = 7;
+    expect(buttons).toHaveLength(value);
+
+    const fire = screen.getByRole('button', { name: /fire/i });
+    userEvent.click(fire);
+    const charmander = screen.getByText(/Charmander/i);
+    expect(charmander).toBeInTheDocument();
+
+    userEvent.click(next);
+    const rapidash = screen.getByText(/Rapidash/i);
+    expect(rapidash).toBeInTheDocument();
+
+    expect(buttonAll).toBeDefined();
   });
 });
