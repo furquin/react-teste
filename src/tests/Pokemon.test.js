@@ -34,4 +34,13 @@ describe('teste no componente PokemonDetails', () => {
 
     expect(detailLink).toHaveAttribute('href', '/pokemons/25');
   });
+
+  test('existe um ícone de estrela nos Pokémons favoritados', () => {
+    const icon = screen.getByAltText(/pikachu is marked as favorite/i);
+    expect(icon).toBeDefined();
+
+    const image = screen.getAllByRole('img');
+    const src = 'http://localhost/star-icon.svg';
+    expect(image[1].src).toEqual(src);
+  });
 });
