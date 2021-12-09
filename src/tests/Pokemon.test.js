@@ -27,4 +27,11 @@ describe('teste no componente PokemonDetails', () => {
     const imagem = screen.getByAltText(/pikachu sprite/i);
     expect(imagem.src).toEqual(url);
   });
+
+  test('teste link details card', () => {
+    const detailLink = screen.getByText(/More details/i);
+    expect(detailLink).toBeDefined();
+
+    expect(detailLink).toHaveAttribute('href', '/pokemons/25');
+  });
 });
