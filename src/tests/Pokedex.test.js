@@ -27,4 +27,10 @@ describe('testes componente pokedex', () => {
     const caterpie = screen.getByText(/Caterpie/i);
     expect(caterpie).toBeDefined();
   });
+
+  test.only('É mostrado apenas um Pokémon por vez.', () => {
+    const list = screen.getAllByTestId('pokemon-name');
+
+    expect(list).toHaveLength(1);
+  });
 });
