@@ -52,4 +52,8 @@ describe('testes componente pokedex', () => {
 
     expect(buttonAll).toBeDefined();
   });
+
+  test('Teste se a Pokédex contém um botão para resetar o filtro', () => {
+
+  });
 });

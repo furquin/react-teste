@@ -21,7 +21,7 @@ describe('testes no componente About', () => {
   });
 
   test('contém  dois parágrafos com informações sobre a Pokédex', () => {
-    const paragrafo = screen.getAllByTestId(/parágrafo/i);
+    const paragrafo = screen.getByText(/Pokémons/i);
 
     expect(paragrafo).toHaveLength(2);
   });
