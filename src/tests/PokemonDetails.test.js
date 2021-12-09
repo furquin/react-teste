@@ -22,4 +22,32 @@ describe('teste componente pokemonDetails', () => {
     const paragrafo = screen.getByText(/intelligent Pokémon/i);
     expect(paragrafo).toBeDefined();
   });
+
+  test(' mapas contendo as localizações do pokémon', () => {
+    const detail = screen.getByRole('link', { name: /more details/i });
+    expect(detail).toBeDefined();
+
+    userEvent.click(detail);
+    const head = screen.getByRole('heading', { level: 2, name: /Locations of Pikachu/i });
+    expect(head).toBeDefined();
+
+    const images = screen.getAllByRole('img');
+    const value = 3;
+    expect(images).toHaveLength(value);
+
+    const imageOne = screen.getByText(/Kanto Viridian Forest/i);
+    expect(imageOne).toBeDefined();
+
+    const imageTwo = screen.getByText(/Kanto Power Plant/i);
+    expect(imageTwo).toBeDefined();
+
+    const oneSrc = 'https://cdn2.bulbagarden.net/upload/0/08/Kanto_Route_2_Map.png';
+    expect(images[1].src).toEqual(oneSrc);
+
+    const twoSrc = 'https://cdn2.bulbagarden.net/upload/b/bd/Kanto_Celadon_City_Map.png';
+    expect(images[2].src).toEqual(twoSrc);
+
+    const imageAlt = screen.getAllByAltText(/Pikachu location/i);
+    expect(imageAlt).toHaveLength(2);
+  });
 });
