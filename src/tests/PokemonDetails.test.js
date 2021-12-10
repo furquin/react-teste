@@ -50,4 +50,21 @@ describe('teste componente pokemonDetails', () => {
     const imageAlt = screen.getAllByAltText(/Pikachu location/i);
     expect(imageAlt).toHaveLength(2);
   });
+
+  test('usuário pode favoritar um pokémon através da página de detalhes', () => {
+    const detail = screen.getByRole('link', { name: /more details/i });
+    expect(detail).toBeDefined();
+
+    userEvent.click(detail);
+    const checkPokemon = screen.getByRole('checkbox', { name: /Pokémon favoritado?/i });
+    expect(checkPokemon).toBeDefined();
+    userEvent.click(checkPokemon);
+
+    const star = screen.getByAltText(/Pikachu is marked as favorite/i);
+    expect(star).toBeInTheDocument();
+
+    userEvent.click(checkPokemon);
+
+    expect(star).not.toBeInTheDocument();
+  });
 });

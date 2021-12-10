@@ -12,7 +12,7 @@ beforeEach(() => {
   />);
 });
 
-describe('teste no componente PokemonDetails', () => {
+describe('teste no componente Pokemon', () => {
   test('É renderizado card com informações específicos ', () => {
     const name = screen.getByText(/pikachu/i);
     expect(name).toBeDefined();
