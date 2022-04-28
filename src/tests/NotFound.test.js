@@ -10,7 +10,7 @@ describe('testes no componente NotFound', () => {
     const heading = screen.getByRole('heading',
       { level: 2, name: /Page requested not found/i });
 
-    expect(heading).toBeInTheDocument();
+    expect(heading).toBeDefined();
   });
 
   test('Teste se página mostra a imagem', () => {

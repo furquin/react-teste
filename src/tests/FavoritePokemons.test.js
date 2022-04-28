@@ -8,7 +8,7 @@ describe('testes no componente FavoritePokemons', () => {
     render(<FavoritePokemons />);
     const mensagem = screen.getByText('No favorite pokemon found');
 
-    expect(mensagem).toBeInTheDocument();
+    expect(mensagem).toBeDefined();
   });
 
   test('Teste se é exibido todos os cards de pokémons favoritados.', () => {
@@ -26,6 +26,6 @@ describe('testes no componente FavoritePokemons', () => {
       }];
     renderWithRouter(<FavoritePokemons pokemons={ pokemonDetail } />);
     const favorite = screen.getByText(/pikachu/i);
-    expect(favorite).toBeInTheDocument();
+    expect(favorite).toBeDefined();
   });
 });

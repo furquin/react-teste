@@ -12,7 +12,7 @@ describe('testes componente pokedex', () => {
     const heading = screen.getByRole('heading',
       { level: 2, name: /Encountered pokémons/i });
 
-    expect(heading).toBeInTheDocument();
+    expect(heading).toBeDefined();
   });
 
   test('É exibido proximo pokemon ao clicar no botão próximo pokémon', () => {
@@ -20,8 +20,9 @@ describe('testes componente pokedex', () => {
     expect(button).toBeDefined();
 
     userEvent.click(button);
+
     const charmander = screen.getByText(/Charmander/i);
-    expect(charmander).toBeInTheDocument();
+    expect(charmander).toBeDefined();
 
     userEvent.click(button);
     const caterpie = screen.getByText(/Caterpie/i);
@@ -44,11 +45,11 @@ describe('testes componente pokedex', () => {
     const fire = screen.getByRole('button', { name: /fire/i });
     userEvent.click(fire);
     const charmander = screen.getByText(/Charmander/i);
-    expect(charmander).toBeInTheDocument();
+    expect(charmander).toBeDefined();
 
     userEvent.click(next);
     const rapidash = screen.getByText(/Rapidash/i);
-    expect(rapidash).toBeInTheDocument();
+    expect(rapidash).toBeDefined();
 
     expect(buttonAll).toBeDefined();
   });
@@ -60,14 +61,14 @@ describe('testes componente pokedex', () => {
 
     userEvent.click(buttonAll);
     const pikachu = screen.getByText(/pikachu/i);
-    expect(pikachu).toBeInTheDocument();
+    expect(pikachu).toBeDefined();
 
     userEvent.click(next);
     const charmander = screen.getByText(/charmander/i);
-    expect(charmander).toBeInTheDocument();
+    expect(charmander).toBeDefined();
 
     userEvent.click(next);
     const caterpie = screen.getByText(/caterpie/i);
-    expect(caterpie).toBeInTheDocument();
+    expect(caterpie).toBeDefined();
   });
 });

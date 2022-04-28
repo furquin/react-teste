@@ -60,11 +60,13 @@ describe('teste componente pokemonDetails', () => {
     expect(checkPokemon).toBeDefined();
     userEvent.click(checkPokemon);
 
-    const star = screen.getByAltText(/Pikachu is marked as favorite/i);
-    expect(star).toBeInTheDocument();
+    const star = screen.getAllByRole('img');
+    expect(star).toHaveLength(4);
 
     userEvent.click(checkPokemon);
 
-    expect(star).not.toBeInTheDocument();
+    const notStar = screen.getAllByRole('img');
+
+    expect(notStar).toHaveLength(3);
   });
 });
